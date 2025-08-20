@@ -22,7 +22,7 @@ const io = new SocketIOServer(server, {
   }
 });
 
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || "http://localhost:5173" }));
+app.use(cors({ origin: process.env.CLIENT_ORIGIN }));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
