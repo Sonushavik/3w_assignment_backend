@@ -8,11 +8,16 @@ import { Server as SocketIOServer } from "socket.io";
 import { usersRouter } from "./routes/users.js";
 import { historyRouter } from "./routes/history.js";
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://3w-assignment-frontend.vercel.app"
+];
+
 const app = express();
 const server = http.createServer(app);
 const io = new SocketIOServer(server, {
   cors: {
-    origin: process.env.CLIENT_ORIGIN || "http://localhost:5173",
+    origin: allowedOrigins,
     credentials: true
   }
 });
